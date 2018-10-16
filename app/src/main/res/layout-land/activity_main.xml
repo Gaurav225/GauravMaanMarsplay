@@ -1,0 +1,52 @@
+<?xml version="1.0" encoding="utf-8"?>
+
+<layout xmlns:android="http://schemas.android.com/apk/res/android"
+        xmlns:app="http://schemas.android.com/apk/res-auto"
+>
+    <data>
+        <variable
+                name="viewmodel"
+                type="com.example.gaurav.gauravmaanmarsplay.ViewModelMain"/>
+        <import type="android.view.View"/>
+    </data>
+
+
+    <FrameLayout
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+
+    >
+
+        <FrameLayout android:layout_width="match_parent"
+                     android:layout_height="match_parent"
+                     android:layout_margin="10dp"
+                     android:id="@+id/container"
+        />
+
+
+        <ProgressBar android:layout_width="match_parent"
+                     android:id="@+id/progress_bar"
+                     android:layout_margin="25dp"
+                     android:layout_height="wrap_content"
+                     android:layout_gravity="bottom|right"
+                     android:visibility="@{viewmodel.isUploading?View.VISIBLE:View.GONE}"
+
+        />
+
+
+        <Button android:layout_width="wrap_content"
+                android:padding="5dp"
+                android:id="@+id/but_open_image_picker"
+                android:layout_height="wrap_content"
+                android:text="Upload Image"
+                android:layout_margin="25dp"
+                android:background="#27cced"
+                android:enabled="@{!viewmodel.isUploading}"
+                android:visibility="@{!viewmodel.isUploading?View.VISIBLE:View.GONE}"
+                android:layout_gravity="bottom|right"
+                android:onClick="uploadImage"
+        />
+
+    </FrameLayout>
+
+</layout>
